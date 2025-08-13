@@ -1,0 +1,12 @@
+<div class="notes-list">
+  <div 
+    *ngFor="let note of notes" 
+    class="note-item" 
+    [class.selected]="selectedNoteId === note.id"
+    (click)="onSelectNote(note)"
+  >
+    <h3 class="note-title">{{ note.title }}</h3>
+    <p class="note-preview">{{ note.content }}</p>
+    <p class="note-date">{{ note.updated_at | date:'medium' }}</p>
+  </div>
+</div>

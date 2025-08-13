@@ -1,0 +1,9 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    class="search-input" 
+    placeholder="Search notes..."
+    [ngModel]="searchQuery"
+    (ngModelChange)="onSearch($event)"
+  >
+</div>

@@ -1,3 +1,23 @@
-<div class="container">
-  <h1>{{ title }}</h1>
+<div class="app-container">
+  <app-sidebar
+    (newNote)="createNewNote()"
+    (search)="searchNotes($event)"
+  ></app-sidebar>
+  <div class="main-content">
+    <div class="error-message" *ngIf="error">{{ error }}</div>
+    <div class="notes-panel">
+      <app-notes-list
+        [notes]="notes"
+        [selectedNoteId]="selectedNote?.id"
+        (selectNote)="selectNote($event)"
+      ></app-notes-list>
+    </div>
+    <div class="editor-panel">
+      <app-note-editor
+        [note]="selectedNote"
+        (save)="saveNote($event)"
+        (delete)="deleteNote($event)"
+      ></app-note-editor>
+    </div>
+  </div>
 </div>
